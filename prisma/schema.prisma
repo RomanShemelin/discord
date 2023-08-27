@@ -15,6 +15,7 @@ model Profile {
   userId String @unique
   name String
   imageUrl String @db.Text
+  email String @db.Text
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   servers Server[]
