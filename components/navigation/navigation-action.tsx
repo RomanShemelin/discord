@@ -10,7 +10,7 @@ const NavigationAction = () => {
   return (
     <div>
       <ActionTooltip label='Add a server' align='center' side='right'>
-        <button
+        <div
           className='group flex items-center mt-5'
           onClick={() => onOpen('createServer')}
         >
@@ -20,7 +20,7 @@ const NavigationAction = () => {
               size={25}
             />
           </div>
-        </button>
+        </div>
       </ActionTooltip>
     </div>
   );
