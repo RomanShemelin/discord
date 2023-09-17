@@ -1,13 +1,14 @@
-interface InviteCodePageProps {
-  params: {
-    inviteCode: string;
-  };
-}
 
 import { currentProfile } from '@/lib/current-profile';
 import { db } from '@/lib/db';
 import { redirectToSignIn } from '@clerk/nextjs';
 import { redirect } from 'next/navigation';
+
+interface InviteCodePageProps {
+  params: {
+    inviteCode: string;
+  };
+}
 
 export default async function InviteCodePage({ params }: InviteCodePageProps) {
   const profile = await currentProfile();
