@@ -1,10 +1,10 @@
 import { redirectToSignIn } from '@clerk/nextjs';
 import { redirect } from 'next/navigation';
 
-import { db } from '@/lib/db';
+import { ChatHeader } from '@/components/chat/chat-header';
 import { getOrCreateConversation } from '@/lib/conversation';
 import { currentProfile } from '@/lib/current-profile';
-import { ChatHeader } from '@/components/chat/chat-header';
+import { db } from '@/lib/db';
 
 interface MemberIdPageProps {
   params: {
@@ -56,6 +56,7 @@ const MemberIdPage = async ({ params }: MemberIdPageProps) => {
         serverId={params.serverId}
         type='conversation'
       />
+      
     </div>
   );
 };
