@@ -10,7 +10,7 @@ import { useRouter } from 'next/navigation';
 
 import { Form, FormControl, FormField, FormItem } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
-import { useModal } from '../hooks/use-modal-store';
+import { useModal } from "../hooks/use-modal-store";
 
 interface ChatInputProps {
   apiUrl: string;
@@ -24,6 +24,7 @@ const formSchema = z.object({
 });
 
 export const ChatInput = ({ apiUrl, query, name, type }: ChatInputProps) => {
+  const { onOpen } = useModal();
   const router = useRouter();
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -41,11 +42,9 @@ export const ChatInput = ({ apiUrl, query, name, type }: ChatInputProps) => {
         url: apiUrl,
         query,
       });
-
+console.log(url)
       await axios.post(url, values);
 
-      form.reset();
-      router.refresh();
     } catch (error) {
       console.log(error);
     }
@@ -75,8 +74,7 @@ export const ChatInput = ({ apiUrl, query, name, type }: ChatInputProps) => {
                       type === 'conversation' ? name : '#' + name
                     }`}
                     {...field}
-                  />
-                  <div className='absolute top-7 right-8'></div>
+                  /> 
                 </div>
               </FormControl>
             </FormItem>
